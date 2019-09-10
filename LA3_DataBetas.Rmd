@@ -18,6 +18,9 @@ cdc <- as_tibble(cdc)
 ```
 ```{r}
 ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
-  geom_point()
+  geom_abline(aes(intercept = 0, slope = 1), data = cdc) +
+  geom_point() +
+  geom_smooth(method = 'lm', color = "black") +
+  facet_wrap(~gender)
 ```
 
