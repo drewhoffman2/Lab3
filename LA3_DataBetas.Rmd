@@ -35,3 +35,15 @@ ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gend
 
 ### y calculates how much someone wanted to change their weight by, a negative value meant that they wanted to lose weight
 ```
+Burke's Individual Graph:
+```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
+
+
+
+```
+
+
