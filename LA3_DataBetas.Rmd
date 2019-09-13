@@ -47,9 +47,6 @@ ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
 This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
 Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
 ```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
 ggplot(data=cdc, mapping=aes(x = gender, y = wtdesire-weight)) + geom_jitter(mapping=aes(color=gender))+facet_wrap(~ exerany)
 ```
 **Drew's Individual Graph:**
