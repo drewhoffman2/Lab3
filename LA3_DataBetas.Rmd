@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 ---
 title: "Lab 3"
 author: "Drew Hoffman, Tanner Ball, Burke Parent, David Washburn, Brandon Nelsen"
@@ -126,7 +126,7 @@ ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
 
 
 ```
-Tanner's Individual Graph:
+**Tanner's Individual Graph:**
 This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
 Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
 ```{r}
@@ -144,9 +144,3 @@ cdc <- as_tibble(cdc)
 ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
 
 ```
-
-
-
-
-
->>>>>>> Stashed changes
