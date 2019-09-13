@@ -1,3 +1,4 @@
+
 ---
 title: "Lab 3"
 author: "Drew Hoffman, Tanner Ball, Burke Parent, David Washburn, Brandon Nelsen"
@@ -10,6 +11,11 @@ What is the overall average difference in weight vs desired weight between men a
 
 **Why does this matter:** 
 We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health.
+**Conclusions:**
+From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the line with a slope of 1. A regression with a slope of one represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is way less than ideal weight compared to males.
+
+**Recommended Action:**
+
 
 ```{r include = FALSE}
 library(tidyverse)
@@ -23,7 +29,9 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
   geom_smooth(method = 'lm', color = "black") +
   facet_wrap(~gender)
 ```
-David's Graph
+
+David's Individual Graph:
+These data show the relationship between one's age and their desired weight change. Overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ points) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men.
 ```{r}
 ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
   geom_smooth(se = FALSE) +
@@ -59,6 +67,4 @@ ggplot(data = cdc)+
 
 **Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
 height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
-
-
 
