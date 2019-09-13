@@ -50,7 +50,8 @@ Tanner's Individual Graph:
 library(tidyverse)
 source("http://www.openintro.org/stat/data/cdc.R")
 cdc <- as_tibble(cdc)
-ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter()+geom_smooth(se=FALSE)+facet_wrap(exerany ~ gender)
+ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=aes(color=gender))+geom_smooth(se=FALSE)+facet_wrap(~ exerany)
+
 ### a look into whether the weight vs desired weight is different among those who have exercised in the past month vs those who haven't.
 ```
 
