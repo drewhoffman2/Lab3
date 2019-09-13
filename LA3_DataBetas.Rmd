@@ -54,5 +54,17 @@ ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=ae
 
 ### a look into whether the weight vs desired weight is different among those who have exercised in the past month vs those who haven't.
 ```
+**Drew's Individual Graph:**
+A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
+```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
+
+```
+
+
+
 
 
