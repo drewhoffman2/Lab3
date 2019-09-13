@@ -10,6 +10,11 @@ What is the overall average difference in weight vs desired weight between men a
 
 **Why does this matter:** 
 We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health.
+**Conclusions:**
+From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the line with a slope of 1. A regression with a slope of one represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is way less than ideal weight compared to males.
+
+**Recommended Action:**
+
 
 ```{r include = FALSE}
 library(tidyverse)
