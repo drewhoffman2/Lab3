@@ -47,9 +47,10 @@ Tanner's Individual Graph:
 This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
 Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
 ```{r}
-ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=aes(color=gender))+geom_smooth(se=FALSE)+facet_wrap(~ exerany)
-
-### a look into whether the weight vs desired weight is different among those who have exercised in the past month vs those who haven't.
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+ggplot(data=cdc, mapping=aes(x = gender, y = wtdesire-weight)) + geom_jitter(mapping=aes(color=gender))+facet_wrap(~ exerany)
 ```
 **Drew's Individual Graph:**
 A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
