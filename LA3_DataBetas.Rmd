@@ -10,12 +10,7 @@ output: html_document
 What is the overall average difference in weight vs desired weight between men and women?
 
 **Why does this matter:** 
-We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health.
-**Conclusions:**
-From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the line with a slope of 1. A regression with a slope of one represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is way less than ideal weight compared to males.
-
-**Recommended Action:**
-
+We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. The two factors we are looking at is if the desired change is positive or negative as well as the magnitude of the desired change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health. This is important because the self-perception of citizens in the United States affects many different industries and ways of life. For example, advertising, entertainment, and cosmetics are all influenced heavily by the psyche of the people that consume those products. There is a mountain of information behind a simple calculation, desired weight minus real weight.
 
 ```{r include = FALSE}
 library(tidyverse)
@@ -30,6 +25,14 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
   facet_wrap(~gender)
 ```
 
+**Conclusions:**
+From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the overlayed line with a slope of 1. A point that is at this line represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is on average less than ideal weight compared to males. There is a point on the graph where the regression line intersects the line with a slope of 1. This represents the point at which people are, on average, satisfied with their current weight. We can see that it is at about 120 pounds for females and about 160 pounds for males. To the left of these intersections, on average, people would like their weight to be higher than it is, and to the right they wish their weight to be lower. This shows us that men are comfortable with a higher weight than women are, and because of this the average weight for a man is higher than that of a woman.
+
+**Recommended Action:**
+As data scientists, we recommend that there be further research done on the body images and health routines of women and men in the United States. It seems that your average person wants to lose weight, and by studying data such as prevalence of eating disorders, daily caloric intake, exercise habits, etc., we can get a more holistic view of how U.S. citizens perceive their own body and health. This can lend us insight to rates of body dysmorphia disorder, or a mental disorder in which you can't stop thinking about one or more perceived defects or flaws in your appearance. High rates of this condition may become a public health issue if it increases rates of eating disorders, drug use, or further mental issues. 
+
+**Individual findings:**
+
 **David's Individual Graph:**
 I David washburn created a plot that shows the relationship between one’s age and their desired weight change. The data showed that overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ units) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men. I used the geom_smooth function and used the linetype aesthetic to seperate between men and women. I also added the classic theme.
 ```{r}
@@ -39,23 +42,28 @@ ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gend
 
 ### y calculates how much someone wanted to change their weight by, a negative value meant that they wanted to lose weight
 ```
+
 **Burke's Individual Graph:**
 ```{r}
 ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
 ```
+
 **Tanner's Individual Graph:**
 This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
 Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
 ```{r}
 ggplot(data=cdc, mapping=aes(x = gender, y = wtdesire-weight)) + geom_jitter(mapping=aes(color=gender))+facet_wrap(~ exerany)
 ```
+
 **Drew's Individual Graph:**
-A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
+A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category. This shows us that smoking can be prevalent for people at many different health levels, and smokers still make up a significant amount of those from poor health to very good health. 
 ```{r}
 ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
 ```
+
 **Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
 height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
+
 ```{r echo = FALSE}
 ggplot(data = cdc)+
   stat_bin(mapping = aes(x = height, color = gender), binwidth = 1)
@@ -65,5 +73,8 @@ ggplot(data = cdc)+
   stat_bin(mapping = aes(x = wtdesire, color = gender), binwidth = 11)
 ```
 
+
+**Who did what:**
+The individual graphs and findings were done by each group member. The overall question was collaborated on by the team. As a team, we came up with the general ideas for our questions and objectives. The "why does it matter" was written by David and Burke. The conclusion was written by Brandon and he also built the team plot. Based on the findings, Drew wrote the recommendation for action. Tanner sorted out issues with gitHub merges and uploading. The lab was a collaborative project and members contributed to many different facets of the final product.
 
 
