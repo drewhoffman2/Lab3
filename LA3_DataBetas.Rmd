@@ -31,7 +31,7 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
 ```
 
 **David's Individual Graph:**
-These data show the relationship between one's age and their desired weight change. Overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ points) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men.
+I David washburn created a plot that shows the relationship between one’s age and their desired weight change. The data showed that overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ units) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men. I used the geom_smooth function and used the linetype aesthetic to seperate between men and women. I also added the classic theme.
 ```{r}
 ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
   geom_smooth(se = FALSE) +
