@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 
 ---
 title: "Lab 3"
@@ -34,10 +33,6 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
 David's Individual Graph:
 These data show the relationship between one's age and their desired weight change. Overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ points) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men.
 ```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-
 ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
   geom_smooth(se = FALSE) +
   theme_classic()
@@ -46,95 +41,12 @@ ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gend
 ```
 Burke's Individual Graph:
 ```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
 ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
 ```
-
-**Tanner's Individual Graph:**
+Tanner's Individual Graph:
 This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
 Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
 ```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data=cdc, mapping=aes(x = gender, y = wtdesire-weight)) + geom_jitter(mapping=aes(color=gender))+facet_wrap(~ exerany)
-```
-
-**Drew's Individual Graph:**
-A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
-
-```
-
-
-
-=======
-<<<<<<< Updated upstream
-
----
-title: "Lab 3"
-author: "Drew Hoffman, Tanner Ball, Burke Parent, David Washburn, Brandon Nelsen"
-date: "9/10/2019"
-output: html_document
----
-
-**Overall question:** 
-What is the overall average difference in weight vs desired weight between men and women?
-
-**Why does this matter:** 
-We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health.
-**Conclusions:**
-From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the line with a slope of 1. A regression with a slope of one represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is way less than ideal weight compared to males.
-
-**Recommended Action:**
-
-
-```{r include = FALSE}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-```
-```{r echo = FALSE}
-ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
-  geom_point() +
-  geom_abline(aes(intercept = 0, slope = 1), data = cdc) +
-  geom_smooth(method = 'lm', color = "black") +
-  facet_wrap(~gender)
-```
-
-David’s Individual Graph: I David washburn created a plot that shows the relationship between one’s age and their desired weight change. The data showed that overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ units) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men. I used the geom_smooth function and used the linetype aesthetic to seperate between men and women. I also added the classic theme.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-
-ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
-  geom_smooth(se = FALSE) +
-  theme_classic()
-
-### y calculates how much someone wanted to change their weight by, a negative value meant that they wanted to lose weight
-```
-Burke's Individual Graph:
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
-
-
-
-```
-Tanner's Individual Graph:
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
 ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=aes(color=gender))+geom_smooth(se=FALSE)+facet_wrap(~ exerany)
 
 ### a look into whether the weight vs desired weight is different among those who have exercised in the past month vs those who haven't.
@@ -142,161 +54,18 @@ ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=ae
 **Drew's Individual Graph:**
 A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
 ```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
 ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
-
 ```
 
-
-
-=======
-
----
-title: "Lab 3"
-author: "Drew Hoffman, Tanner Ball, Burke Parent, David Washburn, Brandon Nelsen"
-date: "9/10/2019"
-output: html_document
----
-
-**Overall question:** 
-What is the overall average difference in weight vs desired weight between men and women?
-
-**Why does this matter:** 
-We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health.
-**Conclusions:**
-From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the line with a slope of 1. A regression with a slope of one represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is way less than ideal weight compared to males.
-
-**Recommended Action:**
-
-
-```{r include = FALSE}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
+```{r echo = FALSE}
+ggplot(data = cdc)+
+  stat_bin(mapping = aes(x = height, color = gender), binwidth = 1)
 ```
 ```{r echo = FALSE}
-ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
-  geom_point() +
-  geom_abline(aes(intercept = 0, slope = 1), data = cdc) +
-  geom_smooth(method = 'lm', color = "black") +
-  facet_wrap(~gender)
-```
-
-David's Individual Graph:
-I David washburn created a plot that shows the relationship between one's age and their desired weight change. The data showed that overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ units) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men. I used the geom_smooth function and used the linetype aesthetic to seperate between men and women. I also added the classic theme.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-
-ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
-  geom_smooth(se = FALSE) +
-  theme_classic()
-
-### y calculates how much someone wanted to change their weight by, a negative value meant that they wanted to lose weight
-```
-Burke's Individual Graph:
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
-
-
-
-```
-Tanner's Individual Graph:
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=aes(color=gender))+geom_smooth(se=FALSE)+facet_wrap(~ exerany)
-
-### a look into whether the weight vs desired weight is different among those who have exercised in the past month vs those who haven't.
-```
-**Drew's Individual Graph:**
-A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
-
+ggplot(data = cdc)+
+  stat_bin(mapping = aes(x = wtdesire, color = gender), binwidth = 11)
 ```
 
 
-
-
-
-=======
----
-title: "Lab 3"
-author: "Drew Hoffman, Tanner Ball, Burke Parent, David Washburn, Brandon Nelsen"
-date: "9/10/2019"
-output: html_document
----
-
-**Overall question:** 
-What is the overall average difference in weight vs desired weight between men and women?
-
-**Why does this matter:** 
-We are looking at if the average desired weight between men and women is different this can help us answer questions about how each gender prefers their overall weight change. Furthermore, our findings could give insight into how American society shapes the different desires of weight between men and women, which could then lead to unique differences in factors like exercise and overall health.
-
-```{r include = FALSE}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-```
-```{r echo = FALSE}
-ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
-  geom_point() +
-  geom_abline(aes(intercept = 0, slope = 1), data = cdc) +
-  geom_smooth(method = 'lm', color = "black") +
-  facet_wrap(~gender)
-```
-
-David's Individual Graph:
-These data show the relationship between one's age and their desired weight change. Overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ points) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-
-ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
-  geom_smooth(se = FALSE) +
-  theme_classic()
-
-### y calculates how much someone wanted to change their weight by, a negative value meant that they wanted to lose weight
-```
-Burke's Individual Graph:
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
-
-
-
-```
-**Tanner's Individual Graph:**
-This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
-Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data=cdc, mapping=aes(x = gender, y = wtdesire-weight)) + geom_jitter(mapping=aes(color=gender))+facet_wrap(~ exerany)
-```
-**Drew's Individual Graph:**
-A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
-```{r}
-library(tidyverse)
-source("http://www.openintro.org/stat/data/cdc.R")
-cdc <- as_tibble(cdc)
-ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
-
-```
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+**Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
+height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
