@@ -25,8 +25,8 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
   facet_wrap(~gender)
 ```
 
-**Conclusions:**
-From the data we collected, we conclude that it seems as though overall, both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the overlayed line with a slope of 1. A point that is at this line represents that current and desired weight are equal. Below this line means that desired weight is less than current weight. Furthermore, it is shown that female's desired weight is on average less than ideal weight compared to males. There is a point on the graph where the regression line intersects the line with a slope of 1. This represents the point at which people are, on average, satisfied with their current weight. We can see that it is at about 120 pounds for females and about 160 pounds for males. To the left of these intersections, on average, people would like their weight to be higher than it is, and to the right they wish their weight to be lower. This shows us that men are comfortable with a higher weight than women are, and because of this the average weight for a man is higher than that of a woman.
+**Conclusion:**
+From the data we collected, we conclude that the data shows overall trends that both males and females wish to weigh less than they currently weigh. This is represented by the fact that most data points are under the line with a slope of 1, the abline. A regression was created to represent the current and desired weights that are equal. Below the regression line means that desired weight is less than current weight and above the regression line means the desired weight is more than the current weight. Furthermore, it is shown that female's desired weight is less than ideal weight compared to males. This is possibly due to known information that males are generally taller and weigh more than females, so create realistic weight goals men cannot aim to be the same desired weight as females.
 
 **Recommended Action:**
 As data scientists, we recommend that there be further research done on the body images and health routines of women and men in the United States. It seems that your average person wants to lose weight, and by studying data such as prevalence of eating disorders, daily caloric intake, exercise habits, etc., we can get a more holistic view of how U.S. citizens perceive their own body and health. This can lend us insight to rates of body dysmorphia disorder, or a mental disorder in which you can't stop thinking about one or more perceived defects or flaws in your appearance. High rates of this condition may become a public health issue if it increases rates of eating disorders, drug use, or further mental issues. 
@@ -44,8 +44,10 @@ ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gend
 ```
 
 **Burke's Individual Graph:**
+I created a plot showing how weight and general health are related. The data showed as weight grew larger general health tended to become poorer. I used the geom_density function and adjusted the color of genhlth. In addition it created a legend, showing the colors of the 5 categories in general health.
 ```{r}
-ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
+ggplot(data = cdc)+
+  geom_density(mapping = aes(x = weight, color = genhlth))
 ```
 
 **Tanner's Individual Graph:**
