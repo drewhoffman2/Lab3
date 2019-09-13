@@ -30,7 +30,7 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
   facet_wrap(~gender)
 ```
 
-David's Individual Graph:
+**David's Individual Graph:**
 These data show the relationship between one's age and their desired weight change. Overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ points) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men.
 ```{r}
 ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
@@ -39,11 +39,11 @@ ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gend
 
 ### y calculates how much someone wanted to change their weight by, a negative value meant that they wanted to lose weight
 ```
-Burke's Individual Graph:
+**Burke's Individual Graph:**
 ```{r}
 ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
 ```
-Tanner's Individual Graph:
+**Tanner's Individual Graph:**
 This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
 Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
 ```{r}
@@ -57,7 +57,8 @@ A plot of those who have smoked 100 cigarettes in their lives versus those that 
 ```{r}
 ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
 ```
-
+**Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
+height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
 ```{r echo = FALSE}
 ggplot(data = cdc)+
   stat_bin(mapping = aes(x = height, color = gender), binwidth = 1)
@@ -68,5 +69,4 @@ ggplot(data = cdc)+
 ```
 
 
-**Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
-height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
+
