@@ -33,6 +33,10 @@ ggplot(data = cdc, mapping = aes(x = weight, y = wtdesire, color = gender)) +
 David's Individual Graph:
 These data show the relationship between one's age and their desired weight change. Overall, people tended towards wanting to lose weight; the people who wanted to lose the most weight (20+ points) were around 50 years old, while the people who were content with their current weight were in their late teens or were 80+ years old. Furthermore, women tended to want to lose more weight than men.
 ```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+
 ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gender)) +
   geom_smooth(se = FALSE) +
   theme_classic()
@@ -41,30 +45,31 @@ ggplot(data = cdc, mapping = aes(x = age, y = wtdesire - weight, linetype = gend
 ```
 Burke's Individual Graph:
 ```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
 ggplot(data = cdc, mapping = aes(x = age, y = smoke100))
 ```
-Tanner's Individual Graph:
-```{r}
-ggplot(data=cdc, mapping=aes(x = weight, y = wtdesire)) + geom_jitter(mapping=aes(color=gender))+geom_smooth(se=FALSE)+facet_wrap(~ exerany)
 
-### a look into whether the weight vs desired weight is different among those who have exercised in the past month vs those who haven't.
+**Tanner's Individual Graph:**
+This graph investigates whether there is a noticeable difference between men and women on how much they want their weight to change, separated by those that have worked out in the last month (exerany = 1) and those that haven't (exerany = 0).
+Negative values on the y-axis indicate people who want to lose weight. Although there wasn't much of a difference in desired weight change between the genders, there was a few data points which suggest that those that have recently exercised want to lose more weight than those that haven't recently worked out.
+```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+ggplot(data=cdc, mapping=aes(x = gender, y = wtdesire-weight)) + geom_jitter(mapping=aes(color=gender))+facet_wrap(~ exerany)
 ```
+
 **Drew's Individual Graph:**
 A plot of those who have smoked 100 cigarettes in their lives versus those that haven't. They are categorized by general health. In the healthier categories, the rate of smoking is lower than in worse health categories. The rate is drastically lower among those with excellent health but there are still a significant amount of smokers at every other health category.
 ```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
 ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
-```
 
-```{r echo = FALSE}
-ggplot(data = cdc)+
-  stat_bin(mapping = aes(x = height, color = gender), binwidth = 1)
-```
-```{r echo = FALSE}
-ggplot(data = cdc)+
-  stat_bin(mapping = aes(x = wtdesire, color = gender), binwidth = 11)
 ```
 
 
-**Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
-height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
 
