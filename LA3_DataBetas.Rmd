@@ -63,7 +63,7 @@ A plot of those who have smoked 100 cigarettes in their lives versus those that 
 ggplot(data = cdc) + geom_bar(mapping=aes(x = smoke100)) + facet_wrap(~ genhlth)
 ```
 
-**Brandon's Individal Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
+**Brandon's Individual Plots:** These two plots were created to show the similar trends in height and desired weight. One is a histogram of
 height and the other is a histogram of desired weight, the two show similar trends to each other. The trend shows that height may prehaps affect the desired weight of an individual.
 
 ```{r echo = FALSE}
